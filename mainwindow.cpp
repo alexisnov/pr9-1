@@ -97,7 +97,7 @@ void MainWindow::resp_country(QByteArray resp)
          for (int i=0;i<global.size();i++) {
              QJsonObject country = global[i].toObject();
              ui->textEdit->setText(country.value("confirmed").toString());
-             country_issues+=country.value("confirmed_diff").toInt();
+             country_issues+=country.value("confirmed").toInt();
          }
          if(plot){//Добавление данных для графика
                 country_case->append(country_issues);
@@ -193,4 +193,9 @@ void MainWindow::on_pushButton_plot_clicked()
     //Сброс строки прогресса
     ui->progressBar->setValue(0);
     ui->progressBar->setEnabled(true);
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    countryName = arg1; //Изменение названия страны
 }

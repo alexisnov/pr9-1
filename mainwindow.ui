@@ -131,7 +131,23 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>Russia</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Japan</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>United Kingdom</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item>
            <widget class="QLCDNumber" name="lcdNumber_rus">
