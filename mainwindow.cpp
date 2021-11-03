@@ -22,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
     //Инициализация вектора
     city_case = new QVector<int>;
     country_case = new QVector<int>;
+    countryName = "Russia";
+    cityName = "Moscow";
 }
 
 MainWindow::~MainWindow()
@@ -34,8 +36,8 @@ void MainWindow::on_pb_request_clicked()
 {
     //com->getCountries();
     com->getSummary();
-    com->getCountryInfo("Russia",ui->dateEdit->text());
-    com->getCityInfo("Moscow",ui->dateEdit->text());
+    com->getCountryInfo(countryName,ui->dateEdit->text());
+    com->getCityInfo(cityName,ui->dateEdit->text());
 }
 
 //Слот получения списка стран
@@ -139,8 +141,8 @@ void MainWindow::t_tick(){
     if(dayID<daysN){//Проверка граничных условий
         if(!request){
             QDate date = date_start.addDays(dayID);
-            com->getCityInfo("Moscow",date.toString("yyyy-MM-dd"));
-            com->getCountryInfo("Russia",date.toString("yyyy-MM-dd"));
+            com->getCityInfo(cityName,date.toString("yyyy-MM-dd"));
+            com->getCountryInfo(countryName,date.toString("yyyy-MM-dd"));
             request = true;
             dayID++;
             int p = (int) dayID*100.0/daysN;

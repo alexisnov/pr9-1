@@ -53,6 +53,8 @@ private:
     QDate date_end;//Дата конца построений
     int daysN;//Кол-во дней для построений
     int dayID;//ID дня
+    QString countryName;//Название страны для запроса
+    QString cityName;//Название страны для запроса
     //График
     QChart *chart;
     QLineSeries *series;//Ряд данных

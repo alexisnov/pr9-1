@@ -24,7 +24,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -122,13 +122,16 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2,3">
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>По России</string>
+             <string>По стране</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox"/>
           </item>
           <item>
            <widget class="QLCDNumber" name="lcdNumber_rus">
