@@ -6,27 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>701</width>
-    <height>561</height>
+    <width>666</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Заболеваемость COVID-19</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
+      <property name="autoFillBackground">
+       <bool>true</bool>
       </property>
-      <widget class="QWidget" name="tab">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="tab_simple">
        <attribute name="title">
         <string>Запрос</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
@@ -36,9 +45,19 @@
           </item>
           <item>
            <widget class="QDateEdit" name="dateEdit">
+            <property name="dateTime">
+             <datetime>
+              <hour>0</hour>
+              <minute>0</minute>
+              <second>0</second>
+              <year>2020</year>
+              <month>11</month>
+              <day>16</day>
+             </datetime>
+            </property>
             <property name="maximumDate">
              <date>
-              <year>2025</year>
+              <year>2021</year>
               <month>12</month>
               <day>31</day>
              </date>
@@ -61,7 +80,49 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>По миру</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="lcdNumber_world">
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
+            <property name="digitCount">
+             <number>10</number>
+            </property>
+            <property name="segmentStyle">
+             <enum>QLCDNumber::Flat</enum>
+            </property>
+            <property name="value" stdset="0">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
@@ -103,44 +164,6 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>По миру</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLCDNumber" name="lcdNumber_world">
-            <property name="sizeIncrement">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="digitCount">
-             <number>10</number>
-            </property>
-            <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <widget class="QTextEdit" name="textEdit"/>
         </item>
         <item>
@@ -152,17 +175,23 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_plot">
        <attribute name="title">
         <string>График</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,1">
+       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,1">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <property name="spacing">
+           <number>2</number>
+          </property>
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>Дата (нач.)</string>
+             <string>Начало</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -170,9 +199,9 @@
            <widget class="QDateEdit" name="dateEdit_start">
             <property name="maximumDate">
              <date>
-              <year>2025</year>
+              <year>2020</year>
               <month>12</month>
-              <day>24</day>
+              <day>31</day>
              </date>
             </property>
             <property name="minimumDate">
@@ -183,7 +212,7 @@
              </date>
             </property>
             <property name="displayFormat">
-             <string>dd-MM-yyyy</string>
+             <string>yyyy-MM-dd</string>
             </property>
             <property name="calendarPopup">
              <bool>true</bool>
@@ -191,9 +220,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Дата (кон.)</string>
+             <string>Конец</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -204,9 +233,9 @@
            <widget class="QDateEdit" name="dateEdit_end">
             <property name="maximumDate">
              <date>
-              <year>2025</year>
+              <year>2020</year>
               <month>12</month>
-              <day>21</day>
+              <day>31</day>
              </date>
             </property>
             <property name="minimumDate">
@@ -217,7 +246,7 @@
              </date>
             </property>
             <property name="displayFormat">
-             <string>dd-MM-yyyy</string>
+             <string>yyyy-MM-dd</string>
             </property>
             <property name="calendarPopup">
              <bool>true</bool>
@@ -234,7 +263,17 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="plot_Layout"/>
+         <widget class="QProgressBar" name="progressBar">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="plotLayout"/>
         </item>
        </layout>
       </widget>
@@ -247,8 +286,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>701</width>
-     <height>26</height>
+     <width>666</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

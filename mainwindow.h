@@ -28,7 +28,6 @@ class MainWindow : public QMainWindow
     QVector<int> *country_case;
     bool plot;//Флаг построения
     bool request;//Флаг на текущий запрос
-
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
