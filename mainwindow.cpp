@@ -227,6 +227,10 @@ void MainWindow::displayCountries(QByteArray text){
         foreach(QJsonValue country,countries){
             QJsonObject c = country.toObject();
             ui->comboBox->addItem(c["name"].toString());
+            QStringList strList = QStringList();
+            strList.append(c["name"].toString());
+            QTreeWidgetItem *item = new QTreeWidgetItem(strList);
+            ui->treeWidget->addTopLevelItem(item);
         }
     }
 
